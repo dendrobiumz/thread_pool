@@ -4,8 +4,10 @@
 #include "list.h"
 #include <stdatomic.h>
 
+
 typedef struct lfq {
     struct list_head head;
+    atomic_long sz;
     int (*push_back)(struct lfq *, struct list_head *);
     int (*pop_front)(struct lfq *, struct list_head **);
     int (*pop_back)(struct lfq *, struct list_head **);
